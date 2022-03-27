@@ -22,4 +22,8 @@ def init_db(app: FastAPI) -> None:
         generate_schemas=False,
         add_exception_handlers=True,
     )
-    Tortoise.init_models(["src.models.database.Cars", "src.models.database.Users"], "models")
+    Tortoise.init_models(["src.models.database.Cars", 
+    "src.models.database.Users", 
+    "src.models.database.Manufacturers", 
+    "src.models.database.Packages"
+    ], "models")

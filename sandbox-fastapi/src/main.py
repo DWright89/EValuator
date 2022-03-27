@@ -5,6 +5,8 @@ from src.utils.db_manager import init_db
 from src.utils.log_manager import init_logging
 from src.utils.env_constants import HOSTNAME, PORT, RELOAD, LOGLEVEL
 from src.routes.v1.root_router import root_router
+from src.routes.v1.car_router import car_router
+from src.routes.v1.user_router import user_router
 
 
 app = FastAPI(
@@ -28,6 +30,7 @@ async def startup_events() -> None:
 
 
 app.include_router(root_router)
+
 
 if __name__ == "__main__":
     run("src.main:app", host=HOSTNAME, port=int(PORT), reload=RELOAD, log_level=LOGLEVEL)

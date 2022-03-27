@@ -1,6 +1,7 @@
 from fastapi import APIRouter
-#from typing import List
+from typing import List
 from pydantic import BaseModel
+
 
 from src.models.database.Cars import Cars
 
@@ -14,7 +15,6 @@ car_router = APIRouter(
 
 class CarModel(BaseModel):
     user_id: int = 1
-    manufacturer: str = "nissan"
     model: str = "altima"
 
 
