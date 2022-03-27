@@ -1,4 +1,4 @@
-from src.models.database import Manufacturers, Cars, Packages
+from src.models.database import Manufacturers, Cars, Trims
 from loguru import logger
 
 # to run: python -m src.seeder.main
@@ -36,10 +36,10 @@ async def create_cars():
     )
 
 
-async def create_packages():
-    logger.info("creating packages")
+async def create_trims():
+    logger.info("creating trims")
     model_3 = await Cars.filter(model="3").first()
-    await Packages.create(
+    await Trims.create(
         car_id=model_3.id,
         trim="Base",
         kwh=54,
@@ -58,7 +58,7 @@ async def create_packages():
         price=46990,
         rating=0.0,
     )
-    await Packages.create(
+    await Trims.create(
         car_id=model_3.id,
         trim="Long Range",
         kwh=75,
@@ -75,5 +75,24 @@ async def create_packages():
         charge240="10.5",
         chargeport="",
         price=54490,
+        rating=0.0,
+    )
+    await Trims.create(
+        car_id=model_3.id,
+        trim="Performance",
+        kwh=75,
+        range=315,
+        fwd=False,
+        rwd=False,
+        awd=True,
+        acceleration=3.1,
+        horsepower=449,
+        torque=3471,
+        mpge=134,
+        kwh100mi=30,
+        charge120="",
+        charge240="10.5",
+        chargeport="",
+        price=61990,
         rating=0.0,
     )

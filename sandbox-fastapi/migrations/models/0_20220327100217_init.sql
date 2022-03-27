@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS "car" (
     "manufacturer_id" INT NOT NULL REFERENCES "manufacturer" ("id") ON DELETE CASCADE,
     "user_id" INT REFERENCES "user" ("id") ON DELETE CASCADE
 );
-CREATE TABLE IF NOT EXISTS "package" (
+CREATE TABLE IF NOT EXISTS "trims" (
     "id" SERIAL NOT NULL PRIMARY KEY,
     "trim" TEXT NOT NULL,
     "kwh" INT NOT NULL,

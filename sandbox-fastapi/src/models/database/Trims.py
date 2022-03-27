@@ -2,7 +2,7 @@ from tortoise import fields
 from tortoise.models import Model
 
 
-class Packages(Model):
+class Trims(Model):
     id = fields.IntField(pk=True)
 
     car = fields.ForeignKeyField("models.Cars")
@@ -26,4 +26,4 @@ class Packages(Model):
     rating = fields.FloatField(null=True)
 
     class Meta:
-        table = "package"
+        table = "trims"
