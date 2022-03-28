@@ -32,13 +32,14 @@ async def create_cars():
         make="Tesla",
         model="S",
         year=2022,
-        cargo=64.6,
+        cargo=28,
     )
 
 
 async def create_trims():
     logger.info("creating trims")
     model_3 = await Cars.filter(model="3").first()
+    model_s = await Cars.filter(model="S").first()
     await Trims.create(
         car_id=model_3.id,
         trim="Base",
@@ -94,5 +95,41 @@ async def create_trims():
         charge240="10.5",
         chargeport="",
         price=61990,
+        rating=0.0,
+    )
+    await Trims.create(
+        car_id=model_s.id,
+        trim="Long Range",
+        kwh=95,
+        range=405,
+        fwd=False,
+        rwd=False,
+        awd=True,
+        acceleration=3.1,
+        horsepower=670,
+        torque=487,
+        mpge=120,
+        kwh100mi=28,
+        charge120="",
+        charge240="9",
+        price=99990,
+        rating=0.0,
+    )
+    await Trims.create(
+        car_id=model_s.id,
+        trim="Plaid",
+        kwh=95,
+        range=396,
+        fwd=False,
+        rwd=False,
+        awd=True,
+        acceleration=1.99,
+        horsepower=1020,
+        torque=1050,
+        mpge=116,
+        kwh100mi=29,
+        charge120="",
+        charge240="9",
+        price=99990,
         rating=0.0,
     )
