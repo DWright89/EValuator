@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from uvicorn import run
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.utils.db_manager import init_db
 from src.utils.log_manager import init_logging
@@ -15,6 +16,20 @@ app = FastAPI(
     docs_url="/",
     version="pre-release",
     openapi_url="/api/v1/openapi.json",
+)
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 init_logging()

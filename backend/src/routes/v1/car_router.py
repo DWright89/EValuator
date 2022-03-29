@@ -1,5 +1,7 @@
 from fastapi import APIRouter
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from loguru import logger
 
 
 from src.models.database.Cars import Cars
@@ -13,8 +15,16 @@ car_router = APIRouter(
 
 
 class CarModel(BaseModel):
-    user_id: int = 1
-    model: str = "altima"
+    id: int 
+    user_id: int
+    manufacturer_id: int
+    model: str
+    image: str
+    make: str
+    model: str
+    year: int
+    cargo: float
+
 
 
 @car_router.post("/")
@@ -31,7 +41,7 @@ async def get_cars():
     """
     API endpoint to get every car
     """
-
+    logger.info("Something is happening")
     return await Cars.all()
 
 
