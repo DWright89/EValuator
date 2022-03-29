@@ -19,10 +19,16 @@ class ManufacturerModel(BaseModel):
 
 @manufacturers_router.get("/")
 async def get_manufacturers():
+    """
+    API endpoint to return every manufacturer.
+    """
     return await Manufacturers.all()
 
 
-@manufacturers_router.get("/one/{name}")
+@manufacturers_router.get("/{name}")
 async def get_one_manufacturer(name: str):
+    """
+    API endpoint to return one manufacturer.
+    """
     one_manufacturer = await Manufacturers.filter(name=name).first()
     return one_manufacturer

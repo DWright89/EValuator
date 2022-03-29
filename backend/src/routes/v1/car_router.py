@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from typing import List
 from pydantic import BaseModel
 
 
@@ -29,4 +28,18 @@ async def create_car(request: CarModel):
 
 @car_router.get("/")
 async def get_cars():
+    """
+    API endpoint to get every car
+    """
+
     return await Cars.all()
+
+
+@car_router.get("/{make}/{model}")
+async def get_one_car(make: str, model: str):
+    """
+    API endpoint to get one car by make and model.
+    Make should be supplied from a Manufactuerer object, eventually.
+    """
+    one_car = await Cars.filter(make=make, model=model).first()
+    return one_car

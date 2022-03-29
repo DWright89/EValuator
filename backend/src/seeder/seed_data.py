@@ -112,7 +112,7 @@ async def create_trims():
         kwh100mi=28,
         charge120="",
         charge240="9",
-        price=99990,
+        price=104490,
         rating=0.0,
     )
     await Trims.create(
@@ -130,6 +130,6 @@ async def create_trims():
         kwh100mi=29,
         charge120="",
         charge240="9",
-        price=99990,
+        price=140490,
         rating=0.0,
     )
