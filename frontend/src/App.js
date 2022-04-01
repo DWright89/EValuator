@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import {Router, Link} from 'react-router-dom'
+import {Routes, Route, Link } from "react-router-dom";
 
 import Index from "./components/Index.js"
+import ManufacturerList from './components/ManufacturerList.js';
+import CarForm from "./components/CarForm.js"
 
 function App() {
   const [cars, setCars] = useState([])
@@ -31,7 +33,7 @@ function App() {
   }
 
   useEffect(()=>{
-    getAnything()
+    
   }, [])
 
   const carList = cars.map((car) =>{
@@ -44,13 +46,24 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Router>
-          <Link to="/index" component={Index}>Index </Link>
-        </Router>
+      
+         <Routes>
+            <Route exact path="/index" element={<Index />}/>
+            <Route exact path="/manufacturers" element={<ManufacturerList />} />
+            <Route exact path="carform" element={<CarForm />} />
+         </Routes>
+       
+     
         <p>
-          Edit <code>src/App.js</code> and save to reload.
-         
+         <Link to="/index">Index?</Link>
         </p>
+        <p>
+         <Link to="/manufacturers">Manufacturers</Link>
+        </p>
+        <p>
+          <Link to="/carform">Car Form</Link>
+        </p>
+       
         <ul>
           {carList}
         </ul>
