@@ -6,41 +6,12 @@ import {Routes, Route, Link } from "react-router-dom";
 import Index from "./components/Index.js"
 import ManufacturerList from './components/ManufacturerList.js';
 import CarForm from "./components/CarForm.js"
+import CarShow from "./components/CarShow.js"
 
 function App() {
-  const [cars, setCars] = useState([])
+ 
 
-  const getAnything = async() =>{
-    const messageOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    }
-    try{ const response = await fetch('http://localhost:8080/v1/cars', messageOptions)
-      if (!response.ok) {
-        console.log(response.headers)
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw (error)
-      }
-      const body = await response.json()
-      setCars(body)
-    }
-    catch(error){
-      console.error("Error ", error)
-    }
-  }
-
-  useEffect(()=>{
-    
-  }, [])
-
-  const carList = cars.map((car) =>{
-    return( <li>{car.make}</li>
-    )
-  })
-
+  
 
   return (
     <div className="App">
@@ -50,7 +21,8 @@ function App() {
          <Routes>
             <Route exact path="/index" element={<Index />}/>
             <Route exact path="/manufacturers" element={<ManufacturerList />} />
-            <Route exact path="carform" element={<CarForm />} />
+            <Route exact path="/carform" element={<CarForm />} />
+            <Route exact path="/carshow" element={<CarShow />} />
          </Routes>
        
      
@@ -63,10 +35,11 @@ function App() {
         <p>
           <Link to="/carform">Car Form</Link>
         </p>
+        <p>
+          <Link to ="/carshow">Car Show</Link>
+        </p>
        
-        <ul>
-          {carList}
-        </ul>
+       
       
       </header>
     </div>

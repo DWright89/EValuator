@@ -32,27 +32,32 @@ const CarForm = (props) => {
     setTrim(event.currentTarget.value)
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const oneCar = {manufacturer, car, trim}
+    props.getCar(oneCar)
+  }
+
   const manufOptions = fetchedManufacturers.map((manufacturer) => {
     return (
-      <option key={manufacturer.id} value={manufacturer.name}>{manufacturer.name}</option>
+      <option key={manufacturer.id} value={manufacturer}>{manufacturer.name}</option>
     )
   })
 
   const carOptions = fetchedCars.map((car) => {
     return (
-      <option key={car.id} value={car.model}>{car.model}</option>
+      <option key={car.id} value={car}>{car.model}</option>
     )
   })
 
   const trimOptions = fetchedTrims.map((trim) => {
     return (
-      <option key={trim.id} value={trim.trim}>{trim.trim}</option>
+      <option key={trim.id} value={trim}>{trim.trim}</option>
     )
   })
 
   //this should be useRef
   useEffect(() => {
-    console.log("It's trying to get manu")
     const getManufacturers = async () => {
       try {
         const response = await fetch("http://localhost:8080/v1/manufacturers")
@@ -66,7 +71,7 @@ const CarForm = (props) => {
 
         setFetchedManufacturers(body)
         setIsLoading(false)
-        setManufacturer(body[0].name)
+        setManufacturer(body[0])
       } catch (error) {
         console.error("Error in maunfacturer all ", error)
       }
@@ -79,8 +84,6 @@ const CarForm = (props) => {
 
 
     const getCars = async (manufacturer) => {
-      console.log("It's trying to get cars")
-
       try {
         if (isLoading === false) {
           console.log(manufacturer)
@@ -94,7 +97,7 @@ const CarForm = (props) => {
           const body = await response.json()
           setFetchedCars(body)
           setIsCarLoading(false)
-          setCar(body[0].model)
+          setCar(body[0])
         }
 
       } catch (error) {
@@ -102,7 +105,7 @@ const CarForm = (props) => {
       }
     }
 
-    getCars(manufacturer)
+    getCars(manufacturer.name)
   }, [manufacturer])
 
   //this one gets trims!
@@ -120,32 +123,38 @@ const CarForm = (props) => {
           }
           const body = await response.json()
           setFetchedTrims(body)
-          setTrim(body[0].trim)
+          setTrim(body[0])
         }
       } catch (error) {
         console.error("Error in trims: ", error)
       }
     }
 
-    getTrims(manufacturer, car)
+    getTrims(manufacturer.name, car.model)
   }, [car])
 
   //make the form start with a default value of '-' LATER
-  return (<>
-    <form>
+  return (<div className="carForm">
+    <form onSubmit={handleSubmit}>
+      <label>Manufacturer:</label>
       <select onChange={handleManufChange}>
         {manufOptions}
       </select>
+      <br />
+      <label>Model:</label>
       <select onChange={handleCarChange}>
         {carOptions}
       </select>
+      <br />
+      <label>Trim:</label>
       <select onChange={handleTrimChange}>
         {trimOptions}
       </select>
+      <button>Get me the car</button>
     </form>
 
     <Link to="/">Go Back</Link>
-  </>
+  </div>
 
   )
 }
