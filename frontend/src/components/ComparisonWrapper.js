@@ -7,7 +7,7 @@ const ComparisonWrapper = (props) =>{
   const [clicked, setClicked] = useState(false)
 
   const testButton = () => setClicked(true)
-  const button = (<Button size="s" onClick={testButton}>This is going to be the button</Button>)
+  const button = (<Button size="s" onClick={testButton}>EValuate!</Button>)
   const notReady = <p>Select two cars to compare them</p>
   
 

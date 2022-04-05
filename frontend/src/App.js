@@ -10,6 +10,7 @@ import ManufacturerList from './components/ManufacturerList.js';
 import CarForm from "./components/CarForm.js"
 import CarShow from "./components/CarShow.js"
 import CarCompare from "./components/CarCompare.js"
+import LandingPage from './components/LandingPage';
 
 function App() {
  
@@ -25,6 +26,7 @@ function App() {
         <header className="App-header">
         
           <Routes>
+              <Route exact path="/" element={<LandingPage />} />
               <Route exact path="/index" element={<Index />}/>
               <Route exact path="/manufacturers" element={<ManufacturerList />} />
               <Route exact path="/carform" element={<CarForm />} />

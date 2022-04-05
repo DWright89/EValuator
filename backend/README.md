@@ -1,6 +1,6 @@
-# Sandbox-Fastapi
+#EZEV
 
-This project exists as a sandbox for me to experiment a service template built around fastapi
+This is the backend for EZEV
 
 ## Key Features
 * Structed logging via loguru and hooks to have uvicorn use loguru

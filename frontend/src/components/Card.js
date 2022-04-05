@@ -1,6 +1,8 @@
 import React from 'react'
 import { Box, Divider } from "@chakra-ui/react"
 
+import apiURL from "../constants/imagePath"
+
 const Card = (props)=>{
   const {manufacturer, car, trim, stats} = props.car
   const price = (trim.price).toLocaleString('en-US', {
@@ -24,7 +26,7 @@ const Card = (props)=>{
     <Box className="card" maxW='sm' borderRadius='lg'
           bg='#5b6170'  p={4} color='white' >
         <h3>{manufacturer.name} {car.model} {trim.trim}</h3>
-        <img src={car.image} alt="A Car"></img>
+        <img src={`${apiURL}/static/images/${car.image}`} alt="A Car"></img>
         <br />
         {price}
         <Divider/>
@@ -34,6 +36,7 @@ const Card = (props)=>{
         <p>0-60 - {trim.acceleration}</p>
         <p>Horsepower - {trim.horsepower}</p>
         <p>Torque - {trim.torque}</p>
+        <p>Weight - {trim.weight}lbs</p>
         <p>MPGe - {trim.mpge}</p>
         <p>KW/h:100mi - {trim.kwh100mi}</p>
         <p>Cargo Capacity - {car.cargo}</p>

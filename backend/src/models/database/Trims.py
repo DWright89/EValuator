@@ -16,6 +16,7 @@ class Trims(Model):
     acceleration = fields.FloatField()
     horsepower = fields.IntField()
     torque = fields.IntField()
+    weight= fields.IntField()
 
     mpge = fields.FloatField(null=True)
     kwh100mi = fields.IntField(null=True)

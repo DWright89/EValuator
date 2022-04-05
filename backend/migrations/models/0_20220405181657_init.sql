@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS "trims" (
     "acceleration" DOUBLE PRECISION NOT NULL,
     "horsepower" INT NOT NULL,
     "torque" INT NOT NULL,
+    "weight" INT NOT NULL,
     "mpge" DOUBLE PRECISION,
     "kwh100mi" INT,
     "charge120v" TEXT,

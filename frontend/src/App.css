@@ -4,12 +4,19 @@
   text-align: center;
 }
 
+.landing{
+  display: flex;
+  flex-direction: column
+}
 
 .topBar{
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 15px;
   font-size: calc(3px + 2vmin);
+  background-color: #282c34;
+  color: rgb(158, 143, 143);
 }
 
 .App-header {

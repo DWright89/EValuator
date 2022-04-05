@@ -22,11 +22,11 @@ const iconManager = (value) =>{
   }
   if(value < 0){
     if(value > -50){
-      return <ArrowRightIcon color="green.500" />
+      return <ArrowRightIcon color="green.100" />
     }if(value < -50 && value > -100){
-      return <ArrowRightIcon color="blue.500" />
+      return <ArrowRightIcon color="green.300" />
     }if(value < -100){
-      return <ArrowRightIcon color="purple.500" />
+      return <ArrowRightIcon color="green.500" />
     }
   }
 }
@@ -56,6 +56,16 @@ const iconManager = (value) =>{
   const torqueDifference = (right.trim.torque / left.trim.torque * 100 - 100).toFixed(2)
   const torqueIcon = iconManager((parseInt(torqueDifference)) *-1)
 
+  const weightDifferenceInt = right.trim.weight - left.trim.weight
+  const weightDifference = (right.trim.weight / left.trim.weight * 100 - 100).toFixed(2)
+  const weightIcon = iconManager(weightDifferenceInt)
+
+
+  const mpgeDifference = (right.trim.mpge / left.trim.mpge * 100 - 100).toFixed(2)
+  const mpgeIcon = iconManager(parseInt(mpgeDifference) *-1)
+
+  const kwh100miDifference = (right.trim.kwh100mi / left.trim.kwh100mi * 100 - 100).toFixed(2)
+  const kwh100miIcon = iconManager(parseInt(kwh100miDifference))
   //NOW DO THE SAME FOR MPGE AND KWH100MI
 
 
@@ -94,6 +104,22 @@ const iconManager = (value) =>{
         {torqueIcon}
         Torque: {torqueDifference}%
         {torqueIcon}
+      </p>
+      <p>
+        {weightIcon}
+        Weight: {weightDifference} ({weightDifferenceInt}lbs)
+        {weightIcon}
+      </p>
+      <p>
+        {mpgeIcon}
+        MPGe: {mpgeDifference}%
+        {mpgeIcon}
+      </p>
+      <p>
+        {kwh100miIcon}
+        KW/h/100mi: {kwh100miDifference}%
+        {kwh100miIcon}
+
       </p>
       
       <StatsCompare left={left} right={right} priceDifference={priceDifferenceDollars}/>

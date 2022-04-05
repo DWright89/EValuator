@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from uvicorn import run
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from src.utils.db_manager import init_db
 from src.utils.log_manager import init_logging
@@ -11,8 +12,8 @@ from src.routes.v1.user_router import user_router
 
 
 app = FastAPI(
-    title="Sandbox FastApi Service",
-    description="This is a sandbox for showcasing configs or methodologies",
+    title="EZEV",
+    description="This is a backend for an EV comparison tool",
     docs_url="/",
     version="pre-release",
     openapi_url="/api/v1/openapi.json",
@@ -33,6 +34,7 @@ app.add_middleware(
 )
 
 init_logging()
+app.mount("/static", StaticFiles(directory="src/static"), name="static")
 
 
 @app.on_event("startup")

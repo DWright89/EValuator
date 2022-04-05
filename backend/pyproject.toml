@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "sandbox-fastapi"
+name = "ezev"
 version = "0.1.0"
 description = ""
-authors = ["steven kessler <stvnksslr@gmail.com>"]
+authors = ["denny wright <dnnywrght@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
