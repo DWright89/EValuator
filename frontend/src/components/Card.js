@@ -35,11 +35,11 @@ const Card = (props)=>{
         <p>Drive - {finalDrive()}</p>
         <p>0-60 - {trim.acceleration}</p>
         <p>Horsepower - {trim.horsepower}</p>
-        <p>Torque - {trim.torque}</p>
-        <p>Weight - {trim.weight}lbs</p>
+        <p>Torque - {trim.torque} ft-lbs</p>
+        <p>Weight - {trim.weight} lbs</p>
         <p>MPGe - {trim.mpge}</p>
         <p>KW/h:100mi - {trim.kwh100mi}</p>
-        <p>Cargo Capacity - {car.cargo}</p>
+        <p>Cargo Capacity - {car.cargo} cu-ft</p>
         <Divider/>
         <p>${stats.dollarPerHorsepower}/Horsepower</p>
         <p>${stats.dollarPerTorque}/Lb-ft torque</p>

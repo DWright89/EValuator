@@ -87,7 +87,7 @@ async def create_trims_chevy():
     )
     await Trims.create(
       car_id=bolt_euv.id,
-      trim="Premire",
+      trim="Premier",
       kwh=65,
       range=289,
       fwd=True,
