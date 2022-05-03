@@ -4,6 +4,7 @@ from fastapi import APIRouter
 from src.models.database.Trims import Trims
 from src.models.database.Cars import Cars
 
+
 trims_router = APIRouter(
     prefix="/trims",
     tags=["trims"],

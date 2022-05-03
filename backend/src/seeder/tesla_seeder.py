@@ -79,7 +79,7 @@ async def create_trims_tesla():
         awd=True,
         acceleration=4.2,
         horsepower=449,
-        torque=302,
+        torque=376,
         weight=4072,
         mpge=134,
         kwh100mi=25,

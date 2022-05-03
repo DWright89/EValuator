@@ -33,7 +33,7 @@ const Card = (props)=>{
         <p>Battery Capacity - {trim.kwh}KW/H</p>
         <p>Range - {trim.range}mi</p>
         <p>Drive - {finalDrive()}</p>
-        <p>0-60 - {trim.acceleration}</p>
+        <p>0-60 - {trim.acceleration} sec</p>
         <p>Horsepower - {trim.horsepower}</p>
         <p>Torque - {trim.torque} ft-lbs</p>
         <p>Weight - {trim.weight} lbs</p>

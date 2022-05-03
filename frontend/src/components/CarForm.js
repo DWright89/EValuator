@@ -88,7 +88,6 @@ const CarForm = (props) => {
         const body = await response.json()
         setFetchedCars(body)
         setIsCarLoading(false)
-        //setCar(body[0])
         setTrim('')
       }
 
@@ -109,7 +108,6 @@ const CarForm = (props) => {
         }
         const body = await response.json()
         setFetchedTrims(body)
-        //setTrim(body[0])
       }
     } catch (error) {
       console.error("Error in trims: ", error)
@@ -131,7 +129,6 @@ const CarForm = (props) => {
 
         setFetchedManufacturers(body)
         setIsLoading(false)
-        //setManufacturer(body[0])
       } catch (error) {
         console.error("Error in maunfacturer all ", error)
       }
