@@ -11,13 +11,6 @@ const StatsCompare = (props) =>{
     });
   }
 
-  const cheaperCheck = ()=>{
-    if(left.dollarPerHorsepower > right.dollarPerHorsepower ){
-      return "Left is more"
-    } else{
-      return "Right is more"
-    }
-  }
 
   const determineHeading = () =>{
     if(priceDifference.includes('-')){
@@ -28,31 +21,31 @@ const StatsCompare = (props) =>{
   }
 
   const determineHorsepowerChange = () =>{
-    if(left.stats.dollarPerHorsepower > right.stats.dollarPerHorsepower){
-      const horsepowerDifference = intToMoney(left.stats.dollarPerHorsepower, right.stats.dollarPerHorsepower)
+    if(left.trim.dollars_per_horsepower > right.trim.dollars_per_horsepower){
+      const horsepowerDifference = intToMoney(left.trim.dollars_per_horsepower, right.trim.dollars_per_horsepower)
       return `You're spending ${horsepowerDifference} less per unit of horsepower`
     } else{
-      const horsepowerDifference = intToMoney(right.stats.dollarPerHorsepower, left.stats.dollarPerHorsepower)
+      const horsepowerDifference = intToMoney(right.trim.dollars_per_horsepower, left.trim.dollars_per_horsepower)
       return `You're spending ${horsepowerDifference} more per unit of horsepower`
     }
   }
 
   const determineTorqueChange = () =>{
-    if(left.stats.dollarPerTorque > right.stats.dollarPerTorque){
-      const torqueDifference = intToMoney(left.stats.dollarPerTorque, right.stats.dollarPerTorque)
+    if(left.trim.dollars_per_torque > right.trim.dollars_per_torque){
+      const torqueDifference = intToMoney(left.trim.dollars_per_torque, right.trim.dollars_per_torque)
       return `You're spending ${torqueDifference} less per lb-ft of torque`
     } else{
-      const torqueDifference = intToMoney(right.stats.dollarPerTorque, left.stats.dollarPerTorque)
+      const torqueDifference = intToMoney(right.trim.dollars_per_torque, left.trim.dollars_per_torque)
       return `You're spending ${torqueDifference} more per lb-ft of torque`
     }
   }
 
   const determineRangeChange = () =>{
-    if(left.stats.dollarPerMile > right.stats.dollarPerMile){
-      const rangeDifference = intToMoney(left.stats.dollarPerMile, right.stats.dollarPerMile)
-      return `You're spending an extra ${rangeDifference} per mile of range`
+    if(left.trim.dollars_per_mile > right.trim.dollars_per_mile){
+      const rangeDifference = intToMoney(left.trim.dollars_per_mile, right.trim.dollars_per_mile)
+      return `You're spending ${rangeDifference} less per mile of range`
     } else{
-      const rangeDifference = intToMoney(right.stats.dollarPerMile, left.stats.dollarPerMile)
+      const rangeDifference = intToMoney(right.trim.dollars_per_mile, left.trim.dollars_per_mile)
       return `It will cost an extra ${rangeDifference} per mile of range`
     }
   }

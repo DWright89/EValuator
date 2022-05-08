@@ -9,7 +9,6 @@ root_router.include_router(trims_router.trims_router, prefix="/v1", tags=["V1"])
 root_router.include_router(comparisons_router.comparisons_router, prefix="/v1", tags=["V1"])
 
 
-
 @root_router.get("/root")
 def root():
     """

@@ -39,19 +39,12 @@ const CarForm = (props) => {
     
     setTrim(newTrim)
   }
- 
-  const getStats = (price, horsepower, torque, range) =>{
-    const dollarPerHorsepower = (price/horsepower).toFixed(2)
-    const dollarPerTorque = (price/torque).toFixed(2)
-    const dollarPerMile = (price/range).toFixed(2)
-    return {dollarPerHorsepower, dollarPerTorque, dollarPerMile}
-  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
     if(manufacturer && car && trim){
-      const stats = getStats(trim.price, trim.horsepower, trim.torque, trim.range)
-      const oneCar = {manufacturer, car, trim, stats}
+      const oneCar = {manufacturer, car, trim}
       props.getCar(oneCar)
     } 
   }
@@ -77,8 +70,6 @@ const CarForm = (props) => {
   const getCars = async (manufacturer) => {
     try {
       if (isLoading === false) {
-        console.log(manufacturer)
-        console.log("isLoading: ", isLoading)
         const response = await fetch(`http://localhost:8080/v1/cars/${manufacturer}`)
         if (!response.ok) {
           const errorMessage = `${response.status} (${response.statusText})`
@@ -99,7 +90,6 @@ const CarForm = (props) => {
   const getTrims = async (make, model) => {
     try {
       if (isCarLoading === false) {
-        console.log("isCarLoading: ", isCarLoading)
         const response = await fetch(`http://localhost:8080/v1/trims/${make}/${model}`)
         if (!response.ok) {
           const errorMessage = `${response.status} (${response.statusText})`

@@ -16,7 +16,7 @@ car_router = APIRouter(
 
 
 class CarModel(BaseModel):
-    id: int 
+    id: int
     user_id: int
     manufacturer_id: int
     model: str
@@ -25,7 +25,6 @@ class CarModel(BaseModel):
     model: str
     year: int
     cargo: float
-
 
 
 @car_router.post("/")
@@ -56,7 +55,7 @@ async def get_cars_by_manufacturer(manufacturer: str):
     API endpoint to get every car from a given manufacturer
     """
     car_list = []
-    manufacturer_id = await Manufacturers.filter(name__iexact=manufacturer).first()    
+    manufacturer_id = await Manufacturers.filter(name__iexact=manufacturer).first()
     car_list.extend(await Cars.filter(manufacturer_id=manufacturer_id.id))
     return car_list
 

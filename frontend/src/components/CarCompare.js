@@ -8,7 +8,6 @@ const CarCompare = (props) =>{
   const [rightCar, setRightCar] = useState(false)
 
   const bothCars = Boolean(leftCar && rightCar)
-  console.log("Are both cars ready? ", bothCars)
 
   return(<>
     <div className="leftCar">
@@ -23,7 +22,6 @@ const CarCompare = (props) =>{
     <div className="rightCar">
       <CarShow setCar={setRightCar}/>
     </div>
-  
   </>
    
   )

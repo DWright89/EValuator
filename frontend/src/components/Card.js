@@ -4,7 +4,7 @@ import { Box, Divider } from "@chakra-ui/react"
 import apiURL from "../constants/imagePath"
 
 const Card = (props)=>{
-  const {manufacturer, car, trim, stats} = props.car
+  const {manufacturer, car, trim} = props.car
   const price = (trim.price).toLocaleString('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -41,9 +41,9 @@ const Card = (props)=>{
         <p>KW/h:100mi - {trim.kwh100mi}</p>
         <p>Cargo Capacity - {car.cargo} cu-ft</p>
         <Divider/>
-        <p>${stats.dollarPerHorsepower}/Horsepower</p>
-        <p>${stats.dollarPerTorque}/Lb-ft torque</p>
-        <p>${stats.dollarPerMile}/Mile of range</p>
+        <p>${trim.dollars_per_horsepower}/Horsepower</p>
+        <p>${trim.dollars_per_torque}/Lb-ft torque</p>
+        <p>${trim.dollars_per_mile}/Mile of range</p>
         
     </Box>
   )
