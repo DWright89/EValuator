@@ -1,7 +1,7 @@
 # takes in two trims, gets the whole car, returns a list of both cars
 from src.models.database.Manufacturers import Manufacturers
 from src.models.database.Cars import Cars
-from src.models.database.Trims import Trims
+from src.models.database.Trims import Trims, Trims_Response
 
 
 async def get_full_car(trim_id: int):

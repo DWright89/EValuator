@@ -11,6 +11,7 @@ import CarForm from "./components/CarForm.js"
 import CarShow from "./components/CarShow.js"
 import CarCompare from "./components/CarCompare.js"
 import LandingPage from './components/LandingPage';
+import CarTable from './components/CarTable'
 
 function App() {
  
@@ -32,6 +33,7 @@ function App() {
               <Route exact path="/carform" element={<CarForm />} />
               <Route exact path="/carshow" element={<CarShow />} />
               <Route exact path="/compare" element={<CarCompare />} />
+              <Route exact path="/table" element={<CarTable />} />
           </Routes>
         
          
