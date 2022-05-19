@@ -24,6 +24,8 @@ async def get_all_trims():
     API endpoint to return every trim for every car
     """
     #all_trims = await Trims_Response.from_queryset(Trims.all())
+    #the above line is correctly getting computed columns, but not returning foreign keys as of 5/16
+    #have to do it the long way for now
     all_trims = await Trims.all()
     all_cars = []
     for trim in all_trims:
@@ -34,7 +36,6 @@ async def get_all_trims():
             "model": car,
             "trim": trim
         }
-        one_car = [manufacturer, car, trim]
         all_cars.append(whole_car)
 
     return all_cars

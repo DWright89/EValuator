@@ -14,3 +14,4 @@ async def create_manufacturers():
     await Manufacturers.create(name="Audi", website="https://www.audiusa.com/")
     await Manufacturers.create(name="Kia", website="https://www.kia.com/us/en")
     await Manufacturers.create(name="Toyota", website="https://www.toyota.com/")
+    await Manufacturers.create(name="Hyundai", website="https://www.hyundaiusa.com/")

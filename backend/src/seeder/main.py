@@ -9,6 +9,7 @@ from src.seeder.nissan_seeder import create_cars_nissan, create_trims_nissan
 from src.seeder.audi_seeder import create_cars_audi, create_trims_audi
 from src.seeder.kia_seeder import create_cars_kia, create_trims_kia
 from src.seeder.toyota_seeder import create_cars_toyota, create_trims_toyota
+from src.seeder.hyundai_seeder import create_cars_hyundai, create_trims_hyundai
 
 
 async def seed():
@@ -30,6 +31,8 @@ async def seed():
     await create_trims_kia()
     await create_cars_toyota()
     await create_trims_toyota()
+    await create_cars_hyundai()
+    await create_trims_hyundai()
 
 
 if __name__ == "__main__":
