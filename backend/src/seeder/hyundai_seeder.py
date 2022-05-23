@@ -28,6 +28,7 @@ async def create_cars_hyundai():
 async def create_trims_hyundai():
     ioniq = await Cars.filter(model="Ioniq 5").first()
     kona = await Cars.filter(model="Kona Electric").first()
+    logger.info("Creating trims - Hyundai")
 
     await Trims.create(
         car_id=ioniq.id,
