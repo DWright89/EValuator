@@ -46,7 +46,6 @@ const generateTable = () =>{
 }
 
   const tableRows = generateTable()
-  console.log('render')
   const handleClick = (event) =>{
     setSortOrder({stat: event.currentTarget.name, direction: Boolean(event.currentTarget.value === 'true')})
   }
